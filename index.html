@@ -128,7 +128,7 @@
         import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut as firebaseSignOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, onSnapshot, orderBy, query } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-      // Your web app's Firebase configuration
+        // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDqls_Tt3BZdw0AQJYk8MgwRY-WFrlFtzw",
   authDomain: "uploadimgsample.firebaseapp.com",
@@ -137,6 +137,7 @@ const firebaseConfig = {
   messagingSenderId: "869582965095",
   appId: "1:869582965095:web:1f58299e9159859abf87c2"
 };
+
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
@@ -168,7 +169,7 @@ const firebaseConfig = {
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
                     const messageClass = data.userName === currentUser.displayName ? 'my-message' : 'other-message';
-                    messagesContainer.innerHTML += <div class="message ${messageClass}"><strong>${data.userName}</strong>: ${data.text}</div>;
+                    messagesContainer.innerHTML += `<div class="message ${messageClass}"><strong>${data.userName}</strong>: ${data.text}</div>`;
                 });
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
             });
